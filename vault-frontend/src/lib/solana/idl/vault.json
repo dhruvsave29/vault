@@ -1,0 +1,2576 @@
+{
+  "address": "GdsJcVVwzv8sMwyYuKXgKiYouPUEBPHQS54xD4Rd1kDh",
+  "metadata": {
+    "name": "vault",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "VAULT — Verifiable Autonomous Unified Layer for Transformers"
+  },
+  "instructions": [
+    {
+      "name": "add_contributor",
+      "discriminator": [
+        125,
+        221,
+        162,
+        182,
+        191,
+        26,
+        206,
+        219
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "signer": true
+        },
+        {
+          "name": "model",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "AddContributorArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "buy_model",
+      "discriminator": [
+        91,
+        242,
+        103,
+        37,
+        140,
+        5,
+        67,
+        77
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "current_owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "model",
+          "writable": true
+        },
+        {
+          "name": "ownership_token_mint"
+        },
+        {
+          "name": "owner_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "current_owner"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "ownership_token_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "buyer_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "buyer"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "ownership_token_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "claim_node_revenue",
+      "discriminator": [
+        123,
+        162,
+        115,
+        99,
+        198,
+        68,
+        121,
+        12
+      ],
+      "accounts": [
+        {
+          "name": "node_address",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "compute_node",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  110,
+                  111,
+                  100,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "node_address"
+              }
+            ]
+          }
+        },
+        {
+          "name": "revenue_escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "claim_revenue",
+      "discriminator": [
+        4,
+        22,
+        151,
+        70,
+        183,
+        79,
+        73,
+        189
+      ],
+      "accounts": [
+        {
+          "name": "contributor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "model",
+          "writable": true
+        },
+        {
+          "name": "revenue_escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "ClaimRevenueArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "complete_inference",
+      "discriminator": [
+        62,
+        142,
+        94,
+        246,
+        137,
+        240,
+        90,
+        250
+      ],
+      "accounts": [
+        {
+          "name": "node_address",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "inference_request",
+          "writable": true
+        },
+        {
+          "name": "model",
+          "writable": true
+        },
+        {
+          "name": "compute_node",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  110,
+                  111,
+                  100,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "node_address"
+              }
+            ]
+          }
+        },
+        {
+          "name": "reputation",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  112,
+                  117,
+                  116,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "model"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "CompleteInferenceArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "create_subscription",
+      "discriminator": [
+        65,
+        71,
+        10,
+        60,
+        249,
+        82,
+        197,
+        12
+      ],
+      "accounts": [
+        {
+          "name": "subscriber",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "model",
+          "writable": true
+        },
+        {
+          "name": "subscription",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  117,
+                  98,
+                  115,
+                  99,
+                  114,
+                  105,
+                  112,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "subscriber"
+              },
+              {
+                "kind": "account",
+                "path": "model"
+              }
+            ]
+          }
+        },
+        {
+          "name": "revenue_escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "distribute_revenue",
+      "discriminator": [
+        94,
+        34,
+        239,
+        201,
+        147,
+        227,
+        29,
+        30
+      ],
+      "accounts": [
+        {
+          "name": "model",
+          "writable": true
+        },
+        {
+          "name": "inference_request"
+        },
+        {
+          "name": "compute_node",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "revenue_escrow",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize_global",
+      "discriminator": [
+        47,
+        225,
+        15,
+        112,
+        86,
+        51,
+        190,
+        231
+      ],
+      "accounts": [
+        {
+          "name": "global_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "revenue_escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  115,
+                  99,
+                  114,
+                  111,
+                  119
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "list_for_sale",
+      "discriminator": [
+        188,
+        214,
+        1,
+        112,
+        93,
+        215,
+        124,
+        207
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "signer": true
+        },
+        {
+          "name": "model",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "ListForSaleArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "register_model",
+      "discriminator": [
+        111,
+        236,
+        93,
+        31,
+        195,
+        210,
+        142,
+        125
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "global_state",
+          "writable": true
+        },
+        {
+          "name": "model",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  100,
+                  101,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "global_state.model_counter",
+                "account": "GlobalState"
+              }
+            ]
+          }
+        },
+        {
+          "name": "reputation",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  112,
+                  117,
+                  116,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "model"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ownership_token_mint",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  119,
+                  110,
+                  101,
+                  114,
+                  115,
+                  104,
+                  105,
+                  112,
+                  95,
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "global_state.model_counter",
+                "account": "GlobalState"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "authority"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "ownership_token_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "RegisterModelArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "register_node",
+      "discriminator": [
+        102,
+        85,
+        117,
+        114,
+        194,
+        188,
+        211,
+        168
+      ],
+      "accounts": [
+        {
+          "name": "node_address",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "compute_node",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  110,
+                  111,
+                  100,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "node_address"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "RegisterNodeArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "request_inference",
+      "discriminator": [
+        92,
+        72,
+        143,
+        109,
+        60,
+        207,
+        61,
+        135
+      ],
+      "accounts": [
+        {
+          "name": "requester",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "global_state",
+          "writable": true
+        },
+        {
+          "name": "model",
+          "writable": true
+        },
+        {
+          "name": "inference_request",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  105,
+                  110,
+                  102,
+                  101,
+                  114,
+                  101,
+                  110,
+                  99,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "requester"
+              },
+              {
+                "kind": "account",
+                "path": "global_state.inference_counter",
+                "account": "GlobalState"
+              }
+            ]
+          }
+        },
+        {
+          "name": "revenue_escrow",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "RequestInferenceArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "request_inference_subscribed",
+      "discriminator": [
+        56,
+        181,
+        215,
+        42,
+        180,
+        65,
+        147,
+        41
+      ],
+      "accounts": [
+        {
+          "name": "requester",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "global_state",
+          "writable": true
+        },
+        {
+          "name": "model",
+          "writable": true
+        },
+        {
+          "name": "inference_request",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  105,
+                  110,
+                  102,
+                  101,
+                  114,
+                  101,
+                  110,
+                  99,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "requester"
+              },
+              {
+                "kind": "account",
+                "path": "global_state.inference_counter",
+                "account": "GlobalState"
+              }
+            ]
+          }
+        },
+        {
+          "name": "subscription",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  117,
+                  98,
+                  115,
+                  99,
+                  114,
+                  105,
+                  112,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "requester"
+              },
+              {
+                "kind": "account",
+                "path": "model"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "RequestInferenceSubscribedArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "transfer_ownership",
+      "discriminator": [
+        65,
+        177,
+        215,
+        73,
+        53,
+        45,
+        99,
+        47
+      ],
+      "accounts": [
+        {
+          "name": "current_owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "new_owner"
+        },
+        {
+          "name": "model",
+          "writable": true
+        },
+        {
+          "name": "ownership_token_mint"
+        },
+        {
+          "name": "owner_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "current_owner"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "ownership_token_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "new_owner_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "new_owner"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "ownership_token_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "update_model",
+      "discriminator": [
+        76,
+        230,
+        44,
+        16,
+        103,
+        83,
+        24,
+        73
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "signer": true
+        },
+        {
+          "name": "model",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "UpdateModelArgs"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "ComputeNode",
+      "discriminator": [
+        22,
+        74,
+        8,
+        250,
+        3,
+        115,
+        248,
+        20
+      ]
+    },
+    {
+      "name": "GlobalState",
+      "discriminator": [
+        163,
+        46,
+        74,
+        168,
+        216,
+        123,
+        133,
+        98
+      ]
+    },
+    {
+      "name": "InferenceRequest",
+      "discriminator": [
+        1,
+        138,
+        18,
+        69,
+        211,
+        40,
+        106,
+        18
+      ]
+    },
+    {
+      "name": "ModelRegistry",
+      "discriminator": [
+        174,
+        72,
+        180,
+        46,
+        185,
+        165,
+        246,
+        200
+      ]
+    },
+    {
+      "name": "Reputation",
+      "discriminator": [
+        55,
+        148,
+        90,
+        71,
+        68,
+        183,
+        193,
+        28
+      ]
+    },
+    {
+      "name": "RevenueEscrow",
+      "discriminator": [
+        231,
+        54,
+        236,
+        223,
+        210,
+        117,
+        78,
+        175
+      ]
+    },
+    {
+      "name": "Subscription",
+      "discriminator": [
+        64,
+        7,
+        26,
+        135,
+        102,
+        132,
+        98,
+        33
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "ContributorAdded",
+      "discriminator": [
+        107,
+        205,
+        32,
+        20,
+        1,
+        95,
+        213,
+        30
+      ]
+    },
+    {
+      "name": "GlobalInitialized",
+      "discriminator": [
+        142,
+        186,
+        188,
+        168,
+        64,
+        228,
+        8,
+        20
+      ]
+    },
+    {
+      "name": "InferenceCompleted",
+      "discriminator": [
+        110,
+        82,
+        13,
+        91,
+        70,
+        77,
+        180,
+        51
+      ]
+    },
+    {
+      "name": "InferenceRequested",
+      "discriminator": [
+        221,
+        6,
+        41,
+        160,
+        184,
+        105,
+        114,
+        15
+      ]
+    },
+    {
+      "name": "InferenceRequestedSubscribed",
+      "discriminator": [
+        67,
+        49,
+        251,
+        78,
+        78,
+        198,
+        83,
+        232
+      ]
+    },
+    {
+      "name": "ModelListedForSale",
+      "discriminator": [
+        86,
+        99,
+        90,
+        203,
+        92,
+        13,
+        249,
+        218
+      ]
+    },
+    {
+      "name": "ModelRegistered",
+      "discriminator": [
+        220,
+        196,
+        19,
+        71,
+        42,
+        237,
+        219,
+        138
+      ]
+    },
+    {
+      "name": "ModelSold",
+      "discriminator": [
+        176,
+        104,
+        70,
+        167,
+        160,
+        9,
+        105,
+        114
+      ]
+    },
+    {
+      "name": "ModelUpdated",
+      "discriminator": [
+        176,
+        73,
+        246,
+        100,
+        211,
+        248,
+        16,
+        248
+      ]
+    },
+    {
+      "name": "NodeRegistered",
+      "discriminator": [
+        15,
+        57,
+        183,
+        59,
+        93,
+        55,
+        157,
+        195
+      ]
+    },
+    {
+      "name": "NodeRevenueClaimed",
+      "discriminator": [
+        187,
+        230,
+        18,
+        68,
+        124,
+        82,
+        180,
+        193
+      ]
+    },
+    {
+      "name": "OwnershipTransferred",
+      "discriminator": [
+        172,
+        61,
+        205,
+        183,
+        250,
+        50,
+        38,
+        98
+      ]
+    },
+    {
+      "name": "RevenueClaimed",
+      "discriminator": [
+        5,
+        254,
+        104,
+        87,
+        133,
+        137,
+        45,
+        116
+      ]
+    },
+    {
+      "name": "RevenueDistributed",
+      "discriminator": [
+        78,
+        195,
+        188,
+        214,
+        203,
+        219,
+        199,
+        87
+      ]
+    },
+    {
+      "name": "SubscriptionCreated",
+      "discriminator": [
+        215,
+        63,
+        169,
+        25,
+        179,
+        200,
+        180,
+        105
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "ModelNotFound",
+      "msg": "Model not found"
+    },
+    {
+      "code": 6001,
+      "name": "Unauthorized",
+      "msg": "Unauthorized: only the owner can perform this action"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidPrice",
+      "msg": "Invalid price: must be greater than zero"
+    },
+    {
+      "code": 6003,
+      "name": "InsufficientPayment",
+      "msg": "Insufficient payment amount"
+    },
+    {
+      "code": 6004,
+      "name": "NodeNotActive",
+      "msg": "Compute node is not active"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidContributionShares",
+      "msg": "Contribution shares must sum to 10000 basis points or less"
+    },
+    {
+      "code": 6006,
+      "name": "MaxContributorsReached",
+      "msg": "Maximum number of contributors reached"
+    },
+    {
+      "code": 6007,
+      "name": "AlreadyListedForSale",
+      "msg": "Model is already listed for sale"
+    },
+    {
+      "code": 6008,
+      "name": "NotListedForSale",
+      "msg": "Model is not listed for sale"
+    },
+    {
+      "code": 6009,
+      "name": "SubscriptionExpired",
+      "msg": "Subscription has expired"
+    },
+    {
+      "code": 6010,
+      "name": "SubscriptionAlreadyActive",
+      "msg": "Active subscription already exists"
+    },
+    {
+      "code": 6011,
+      "name": "InvalidStatus",
+      "msg": "Invalid inference request status for this operation"
+    },
+    {
+      "code": 6012,
+      "name": "ProofVerificationFailed",
+      "msg": "ZK proof verification failed"
+    },
+    {
+      "code": 6013,
+      "name": "TeeAttestationFailed",
+      "msg": "TEE attestation verification failed"
+    },
+    {
+      "code": 6014,
+      "name": "NoRevenueToClaim",
+      "msg": "No revenue to claim"
+    },
+    {
+      "code": 6015,
+      "name": "ModelNotActive",
+      "msg": "Model is not active"
+    },
+    {
+      "code": 6016,
+      "name": "NotAssignedNode",
+      "msg": "Only the assigned compute node can complete this inference"
+    },
+    {
+      "code": 6017,
+      "name": "InferenceNotFound",
+      "msg": "Inference request not found"
+    },
+    {
+      "code": 6018,
+      "name": "NodeNotFound",
+      "msg": "Compute node not found"
+    },
+    {
+      "code": 6019,
+      "name": "NotInitialized",
+      "msg": "Global state not initialized"
+    }
+  ],
+  "types": [
+    {
+      "name": "AddContributorArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "contributor",
+            "type": "pubkey"
+          },
+          {
+            "name": "share",
+            "type": "u16"
+          },
+          {
+            "name": "proof_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "ClaimRevenueArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "contributor_index",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CompleteInferenceArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "output_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "inference_time_ms",
+            "type": "u32"
+          },
+          {
+            "name": "input_tokens",
+            "type": "u32"
+          },
+          {
+            "name": "output_tokens",
+            "type": "u32"
+          },
+          {
+            "name": "compute_flops",
+            "type": "u64"
+          },
+          {
+            "name": "memory_peak_kb",
+            "type": "u32"
+          },
+          {
+            "name": "tee_attestation_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "ComputeNode",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "node_address",
+            "type": "pubkey"
+          },
+          {
+            "name": "endpoint_url",
+            "type": "string"
+          },
+          {
+            "name": "stake",
+            "type": "u64"
+          },
+          {
+            "name": "inference_count",
+            "type": "u64"
+          },
+          {
+            "name": "total_inference_time_ms",
+            "type": "u64"
+          },
+          {
+            "name": "uptime_score",
+            "type": "u32"
+          },
+          {
+            "name": "reputation",
+            "type": "u32"
+          },
+          {
+            "name": "tee_attestation_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "supported_task_types",
+            "type": "u16"
+          },
+          {
+            "name": "max_model_size_kb",
+            "type": "u32"
+          },
+          {
+            "name": "is_active",
+            "type": "bool"
+          },
+          {
+            "name": "registered_at",
+            "type": "i64"
+          },
+          {
+            "name": "last_heartbeat",
+            "type": "i64"
+          },
+          {
+            "name": "accumulated_revenue",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ContributorAdded",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "contributor",
+            "type": "pubkey"
+          },
+          {
+            "name": "share",
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GlobalInitialized",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GlobalState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "model_counter",
+            "type": "u64"
+          },
+          {
+            "name": "inference_counter",
+            "type": "u64"
+          },
+          {
+            "name": "authority",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InferenceCompleted",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "requester",
+            "type": "pubkey"
+          },
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "node",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InferenceRequest",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "requester",
+            "type": "pubkey"
+          },
+          {
+            "name": "model",
+            "type": "pubkey"
+          },
+          {
+            "name": "assigned_node",
+            "type": "pubkey"
+          },
+          {
+            "name": "input_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "output_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "zk_inference_proof",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "payment_amount",
+            "type": "u64"
+          },
+          {
+            "name": "payment_signature",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "u8"
+          },
+          {
+            "name": "inference_time_ms",
+            "type": "u32"
+          },
+          {
+            "name": "input_tokens",
+            "type": "u32"
+          },
+          {
+            "name": "output_tokens",
+            "type": "u32"
+          },
+          {
+            "name": "compute_flops",
+            "type": "u64"
+          },
+          {
+            "name": "memory_peak_kb",
+            "type": "u32"
+          },
+          {
+            "name": "tee_attestation_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "rating",
+            "type": "u8"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "completed_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InferenceRequested",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "requester",
+            "type": "pubkey"
+          },
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "nonce",
+            "type": "u64"
+          },
+          {
+            "name": "payment_amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InferenceRequestedSubscribed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "requester",
+            "type": "pubkey"
+          },
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "nonce",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ListForSaleArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "sale_price",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ModelListedForSale",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "sale_price",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ModelRegistered",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "ipfs_cid",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ModelRegistry",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "ownership_token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "ipfs_cid",
+            "type": "string"
+          },
+          {
+            "name": "encryption_key_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "model_format",
+            "type": "u8"
+          },
+          {
+            "name": "task_type",
+            "type": "u8"
+          },
+          {
+            "name": "framework_version",
+            "type": "string"
+          },
+          {
+            "name": "accuracy_claim",
+            "type": "u16"
+          },
+          {
+            "name": "zk_accuracy_proof_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "price_per_use",
+            "type": "u64"
+          },
+          {
+            "name": "subscription_price",
+            "type": "u64"
+          },
+          {
+            "name": "is_listed_for_sale",
+            "type": "bool"
+          },
+          {
+            "name": "sale_price",
+            "type": "u64"
+          },
+          {
+            "name": "contributors",
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "contribution_shares",
+            "type": {
+              "vec": "u16"
+            }
+          },
+          {
+            "name": "contribution_proofs",
+            "type": {
+              "vec": {
+                "array": [
+                  "u8",
+                  32
+                ]
+              }
+            }
+          },
+          {
+            "name": "accumulated_revenue",
+            "type": {
+              "vec": "u64"
+            }
+          },
+          {
+            "name": "total_revenue",
+            "type": "u64"
+          },
+          {
+            "name": "inference_count",
+            "type": "u64"
+          },
+          {
+            "name": "reputation_score",
+            "type": "u32"
+          },
+          {
+            "name": "total_ratings",
+            "type": "u32"
+          },
+          {
+            "name": "sum_ratings",
+            "type": "u32"
+          },
+          {
+            "name": "is_active",
+            "type": "bool"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "updated_at",
+            "type": "i64"
+          },
+          {
+            "name": "delegate_validator",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ModelSold",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "buyer",
+            "type": "pubkey"
+          },
+          {
+            "name": "price",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ModelUpdated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "model_id",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NodeRegistered",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "node_address",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NodeRevenueClaimed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "node_address",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OwnershipTransferred",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "new_owner",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RegisterModelArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "ipfs_cid",
+            "type": "string"
+          },
+          {
+            "name": "encryption_key_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "model_format",
+            "type": "u8"
+          },
+          {
+            "name": "task_type",
+            "type": "u8"
+          },
+          {
+            "name": "framework_version",
+            "type": "string"
+          },
+          {
+            "name": "accuracy_claim",
+            "type": "u16"
+          },
+          {
+            "name": "price_per_use",
+            "type": "u64"
+          },
+          {
+            "name": "subscription_price",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RegisterNodeArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "endpoint_url",
+            "type": "string"
+          },
+          {
+            "name": "supported_task_types",
+            "type": "u16"
+          },
+          {
+            "name": "max_model_size_kb",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reputation",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "model",
+            "type": "pubkey"
+          },
+          {
+            "name": "score",
+            "type": "u32"
+          },
+          {
+            "name": "total_inferences",
+            "type": "u64"
+          },
+          {
+            "name": "successful_inferences",
+            "type": "u64"
+          },
+          {
+            "name": "failed_inferences",
+            "type": "u64"
+          },
+          {
+            "name": "avg_inference_time_ms",
+            "type": "u32"
+          },
+          {
+            "name": "last_updated",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RequestInferenceArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "input_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "payment_signature",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RequestInferenceSubscribedArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "input_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "RevenueClaimed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "contributor",
+            "type": "pubkey"
+          },
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RevenueDistributed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "total",
+            "type": "u64"
+          },
+          {
+            "name": "contributor_portion",
+            "type": "u64"
+          },
+          {
+            "name": "node_portion",
+            "type": "u64"
+          },
+          {
+            "name": "protocol_portion",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RevenueEscrow",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "total_deposited",
+            "type": "u64"
+          },
+          {
+            "name": "total_distributed",
+            "type": "u64"
+          },
+          {
+            "name": "protocol_treasury",
+            "type": "pubkey"
+          },
+          {
+            "name": "protocol_accumulated",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Subscription",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "subscriber",
+            "type": "pubkey"
+          },
+          {
+            "name": "model",
+            "type": "pubkey"
+          },
+          {
+            "name": "start_time",
+            "type": "i64"
+          },
+          {
+            "name": "expiry_time",
+            "type": "i64"
+          },
+          {
+            "name": "amount_paid",
+            "type": "u64"
+          },
+          {
+            "name": "inference_count",
+            "type": "u64"
+          },
+          {
+            "name": "is_active",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SubscriptionCreated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "subscriber",
+            "type": "pubkey"
+          },
+          {
+            "name": "model_id",
+            "type": "u64"
+          },
+          {
+            "name": "expiry_time",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateModelArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "price_per_use",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "subscription_price",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "is_active",
+            "type": {
+              "option": "bool"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

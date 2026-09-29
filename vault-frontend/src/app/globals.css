@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: var(--font-heading), sans-serif;
+  --font-mono: var(--font-mono), monospace;
+
+  /* VAULT Dark Palette */
+  --color-void: #07080f;
+  --color-surface: #0f1019;
+  --color-card: #151623;
+  --color-card-hover: #1a1b2e;
+  --color-border: rgba(255,255,255,0.08);
+  --color-border-accent: rgba(129,140,248,0.35);
+
+  --color-indigo: #818cf8;
+  --color-indigo-dim: rgba(129,140,248,0.15);
+  --color-violet: #a78bfa;
+  --color-violet-dim: rgba(167,139,250,0.15);
+  --color-emerald: #34d399;
+  --color-emerald-dim: rgba(52,211,153,0.15);
+  --color-amber: #fbbf24;
+  --color-amber-dim: rgba(251,191,36,0.15);
+  --color-rose: #fb7185;
+  --color-rose-dim: rgba(251,113,133,0.15);
+
+  --color-text-primary: #e2e8f0;
+  --color-text-muted: #64748b;
+  --color-text-dim: #334155;
+
+  --color-accent: var(--color-indigo);
+  --color-background: var(--color-void);
+  --color-foreground: var(--color-text-primary);
+
+  /* Legacy compat for existing components */
+  --color-cream: #07080f;
+  --color-cyber-yellow: var(--color-amber);
+  --color-lime-green: var(--color-emerald);
+  --color-hot-coral: var(--color-rose);
+  --color-pure-black: #ffffff;
+}
+
+@layer utilities {
+  .border-brutal {
+    border-width: 4px;
+    border-color: var(--color-border);
+  }
+
+  .border-brutal-accent {
+    border-width: 4px;
+    border-color: var(--color-border-accent);
+  }
+
+  .border-brutal-b {
+    border-bottom-width: 4px;
+    border-bottom-color: var(--color-border);
+  }
+
+  .border-brutal-r {
+    border-right-width: 4px;
+    border-right-color: var(--color-border);
+  }
+
+  .border-brutal-t {
+    border-top-width: 4px;
+    border-top-color: var(--color-border);
+  }
+
+  .border-brutal-dashed {
+    border-width: 4px;
+    border-style: dashed;
+    border-color: var(--color-border);
+  }
+
+  .shadow-brutal {
+    box-shadow: 8px 8px 0px 0px rgba(129,140,248,0.18);
+  }
+
+  .shadow-brutal-sm {
+    box-shadow: 4px 4px 0px 0px rgba(129,140,248,0.14);
+  }
+
+  .shadow-brutal-glow {
+    box-shadow: 8px 8px 0px 0px rgba(129,140,248,0.18), 0 0 30px rgba(129,140,248,0.06);
+  }
+
+  .brutal-btn {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 100ms;
+    border-width: 4px;
+    border-color: var(--color-border);
+    box-shadow: 8px 8px 0px 0px rgba(129,140,248,0.18);
+    font-family: var(--font-heading);
+    font-weight: 800;
+  }
+
+  .brutal-btn:active {
+    transform: translate(8px, 8px);
+    box-shadow: 0px 0px 0px 0px rgba(129,140,248,0);
+  }
+
+  .brutal-btn:hover {
+    background-color: var(--color-indigo);
+    color: #07080f;
+    border-color: var(--color-indigo);
+  }
+
+  .bg-dot-pattern {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.045) 1.5px, transparent 2px);
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
+    background-attachment: fixed;
+  }
+
+  .bg-grid-pattern-dark {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  .text-gradient-indigo {
+    background: linear-gradient(135deg, var(--color-indigo), var(--color-violet));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-emerald {
+    background: linear-gradient(135deg, var(--color-emerald), #2dd4bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-indigo {
+    box-shadow: 0 0 20px rgba(129,140,248,0.15), 0 0 60px rgba(129,140,248,0.05);
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 20px rgba(52,211,153,0.15), 0 0 60px rgba(52,211,153,0.05);
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 20px rgba(167,139,250,0.15), 0 0 60px rgba(167,139,250,0.05);
+  }
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-text-primary);
+}
+
+::selection {
+  background-color: var(--color-indigo);
+  color: #07080f;
+}
